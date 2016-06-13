@@ -925,6 +925,13 @@
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
+
+			.header__current {
+				font-size: 0.75em;
+				line-height:1em;
+				padding-top: 20px;
+			}
+
 		}
 
 		.image.avatar {
@@ -1205,6 +1212,11 @@
 						display: none;
 					}
 				}
+
+				.header__current {
+					font-size: 1em;
+				}
+
 			}
 
 		/* Footer */
