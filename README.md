@@ -1,6 +1,14 @@
 # TylerAckerson.com
 The code behind my simple landing page: https://tylerackerson.com/
 
+### Deploying
+1. [Optional] Bump version in `package.json`
+1. Merge changes to `master`, wait for build
+1. `npm run deploy`
+
+
+
+
 ---
 # React + TypeScript + Vite
 
