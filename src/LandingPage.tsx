@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, Sun, Moon, Bike, Italic } from 'lucide-react';
+import { Github, Linkedin, Mail, Sun, Moon, Bike } from 'lucide-react';
 import profileImage from './assets/profile.jpg';
 
 const LandingPage = () => {
