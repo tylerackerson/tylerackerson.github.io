@@ -3,11 +3,17 @@ import { Github, Linkedin, Mail, Sun, Moon, Bike } from 'lucide-react';
 import profileImage from './assets/profile.jpg';
 
 const LandingPage = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : true;
+  });
+  useEffect(() => {
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   const [easterEgg, setEasterEgg] = useState(false);
   const [overscrollCount, setOverscrollCount] = useState(0);
   const [isOverscrolling, setIsOverscrolling] = useState(false);
-
   
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +32,6 @@ const LandingPage = () => {
       const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight;
       if (atBottom && event.deltaY > 100) {
         if (!isOverscrolling) {
-          console.log("overscrolling");
           setOverscrollCount((prev) => Math.min(prev + 1, 30));
           setIsOverscrolling(true);
         } else {
@@ -50,7 +55,6 @@ const LandingPage = () => {
   }, [isOverscrolling]);
 
   useEffect(() => {
-    console.log(overscrollCount);
     if (overscrollCount >= 30) {
       setEasterEgg(true);
     }
