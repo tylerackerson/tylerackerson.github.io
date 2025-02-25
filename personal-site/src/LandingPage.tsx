@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Github, Linkedin, Mail, FileText, Sun, Moon } from 'lucide-react';
+import { useState } from 'react';
+import { Github, Linkedin, Mail, Sun, Moon } from 'lucide-react';
 import profileImage from './assets/profile.jpg';
-import landscapeDark from './assets/landscape-dark.svg';
 
 const FinalLandingPage = () => {
   const [darkMode, setDarkMode] = useState(true); // Dark mode as default
