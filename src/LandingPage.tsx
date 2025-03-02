@@ -75,7 +75,7 @@ const LandingPage = () => {
         <div className="relative px-6 pb-6">
           <div className="flex justify-center">
             <div className="relative -mt-16">
-              <div className={`${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full h-32 w-32 flex items-center justify-center border-4 ${darkMode ? 'border-gray-100' : 'border-white'} shadow-md overflow-hidden`}>
+              <div className={`${darkMode ? 'bg-gray-700 shadow-lg shadow-gray-500/50' : 'bg-gray-200 shadow-md'} rounded-full h-32 w-32 flex items-center justify-center border-4 ${darkMode ? 'border-gray-100' : 'border-white'} overflow-hidden`}>
                 <img 
                   src={profileImage} 
                   alt="Tyler Ackerson" 
