@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Sun, Moon, Bike } from 'lucide-react';
 import profileImage from './assets/profile.jpg';
+import cyclingImage from './assets/cycling.jpg';
 
 const LandingPage = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -77,8 +78,8 @@ const LandingPage = () => {
             <div className="relative -mt-16">
               <div className={`${darkMode ? 'bg-gray-700 shadow-lg shadow-gray-500/50' : 'bg-gray-200 shadow-md'} rounded-full h-32 w-32 flex items-center justify-center border-4 ${darkMode ? 'border-gray-100' : 'border-white'} overflow-hidden`}>
                 <img 
-                  src={profileImage} 
-                  alt="Tyler Ackerson" 
+                  src={easterEgg ? cyclingImage : profileImage} 
+                  alt={easterEgg ? "Tyler Ackerson Cycling" : "Tyler Ackerson"} 
                   className="h-32 w-32 object-cover" 
                 />
               </div>
