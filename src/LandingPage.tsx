@@ -79,8 +79,8 @@ const LandingPage = () => {
               <div className={`${darkMode ? 'bg-gray-700 shadow-lg shadow-gray-500/50' : 'bg-gray-200 shadow-md'} rounded-full h-32 w-32 flex items-center justify-center border-4 ${darkMode ? 'border-gray-100' : 'border-white'} overflow-hidden`}>
                 <img 
                   src={easterEgg ? cyclingImage : profileImage} 
-                  alt={easterEgg ? "Tyler Ackerson Cycling" : "Tyler Ackerson"} 
-                  className="h-32 w-32 object-cover" 
+                  alt={easterEgg ? "Tyler Ackerson cycling photo" : "Tyler Ackerson profile photo"} 
+                  className="h-32 w-32 object-cover transition-all duration-1000 ease-in-out" 
                 />
               </div>
             </div>
