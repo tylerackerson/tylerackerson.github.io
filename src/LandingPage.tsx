@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Sun, Moon, Bike } from 'lucide-react';
 import profileImage from './assets/profile.jpg';
+import cyclingImage from './assets/cycling.jpg';
 
 const LandingPage = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -14,6 +15,7 @@ const LandingPage = () => {
   const [easterEgg, setEasterEgg] = useState(false);
   const [overscrollCount, setOverscrollCount] = useState(0);
   const [isOverscrolling, setIsOverscrolling] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +62,17 @@ const LandingPage = () => {
     }
   }, [overscrollCount]);
 
+  useEffect(() => {
+    if (clickCount >= 3) {
+      setEasterEgg(prev => !prev);  // Toggle the easter egg
+      setClickCount(0);  // Reset click count after toggling
+    }
+  }, [clickCount]);
+
+  const handleImageClick = () => {
+    setClickCount(prev => prev + 1);
+  };
+
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'} flex flex-col items-center justify-center p-4 relative font-mono`}>
       <button 
@@ -75,11 +88,12 @@ const LandingPage = () => {
         <div className="relative px-6 pb-6">
           <div className="flex justify-center">
             <div className="relative -mt-16">
-              <div className={`${darkMode ? 'bg-gray-700 shadow-lg shadow-gray-500/50' : 'bg-gray-200 shadow-md'} rounded-full h-32 w-32 flex items-center justify-center border-4 ${darkMode ? 'border-gray-100' : 'border-white'} overflow-hidden`}>
+              <div className={`${darkMode ? 'bg-gray-700 shadow-lg shadow-gray-500/50' : 'bg-gray-200 shadow-md'} rounded-full h-32 w-32 flex items-center justify-center border-4 ${darkMode ? 'border-gray-100' : 'border-white'} overflow-hidden cursor-pointer`}>
                 <img 
-                  src={profileImage} 
-                  alt="Tyler Ackerson" 
-                  className="h-32 w-32 object-cover" 
+                  src={easterEgg ? cyclingImage : profileImage} 
+                  alt={easterEgg ? "Tyler Ackerson cycling photo" : "Tyler Ackerson profile photo"} 
+                  className="h-32 w-32 object-cover transition-all duration-1000 ease-in-out" 
+                  onClick={handleImageClick}
                 />
               </div>
             </div>
